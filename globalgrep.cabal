@@ -2,7 +2,7 @@ cabal-version: 2.4
 name:          globalgrep
 version:       0.1.0.0
 synopsis:      Searches for stuff on multiple information systems
-description:   Matel is a command-line utility which facilitates
+description:   globalgrep is a command-line utility which facilitates
                searching for files on multiple systems.
 bug-reports:   http://github.com/varikvalefor/globalgrep/issues
 license:       Unlicense
