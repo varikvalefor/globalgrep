@@ -1,5 +1,6 @@
 import System.Process;
 import System.Environment;
+import Control.Concurrent.Async;
 
 -- | For all HostName @a@, @a@ is the hostname of a network host.
 type HostName = String;
@@ -12,7 +13,7 @@ type Result = String;
 main :: IO ();
 main = head <$> getArgs >>= \query ->
        (parseConfig <$> (readFile =<< configFilePath)) >>= \hosts ->
-       mapM (searchFor query) hosts >>= mapM_ putStrLn . concat;
+       mapConcurrently (searchFor query) hosts >>= mapM_ putStrLn . concat;
 
 -- | Where @k@ is the content of a @globalgrep@ configuration file,
 -- @parseConfig k@ is a list of the names of the network hosts which
