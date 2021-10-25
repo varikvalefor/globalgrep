@@ -40,4 +40,4 @@ searchFor :: String
           -- searches
           -> IO [Result];
 searchFor query host = map (\a -> host ++ ": " ++ a) . lines <$>
-                       readProcess "ssh" [host, "grep -ri " ++ show query ++ " /var/log"] [];
+                       readProcess "ssh" [host, "grep -ri " ++ show query ++ " /"][];
