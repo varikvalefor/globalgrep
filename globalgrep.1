@@ -1,0 +1,42 @@
+.Dd $Mdocdate$
+.Dt matelcli 1
+.Os OpenBSD 6.9
+.Sh NAME
+.Nm globalgrep
+.Nd search for stuff on multiple network hosts
+.Sh SYNOPSIS
+.Nm globalgrep
+.Ar query
+.Sh DESCRIPTION
+.Nm globalgrep
+is a tool which facilitates searching through files on multiple network
+hosts.  As of the writing of this sentence,
+.Nm globalgrep
+is really just a frontend for
+.Xr grep 1 ;
+however,
+.Nm globalgrep
+should still be at least marginally useful.
+.Pp
+If
+.Pa $PATH/.config/globalgrep
+is a file which contains only a space-separated list of network
+hosts which can be accessed via passwordless SSH connections,
+then for all such network hosts,
+.Nm globalgrep
+.Ar query
+runs
+.Nm grep
+.Fl ri
+.Ar query
+.Pa /
+on a network host, writing the output of this command to the
+standard output.
+.Sh AUTHOR
+.Nm globalgrep
+is maintained by
+.An Varik
+.An Dq NOT A COMPUTER PROGRAMMER!!!
+.An Valefor
+.Aq varikvalefor@aol.com .
+Feature requests and patches are welcomed... but may go unused.
