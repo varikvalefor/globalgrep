@@ -1,0 +1,21 @@
+cabal-version: 2.4
+name:          globalgrep
+version:       0.1.0.0
+synopsis:      Searches for stuff on multiple information systems
+description:   Matel is a command-line utility which facilitates
+               searching for files on multiple systems.
+bug-reports:   http://github.com/varikvalefor/globalgrep/issues
+license:       Unlicense
+author:        Varik Valefor
+maintainer:    varikvalefor@aol.com
+copyright:     (c) Varik Valefor 2021.
+category:      File
+
+executable globalgrep
+  main-is: globalgrep.hs
+  other-modules:
+  build-depends:
+    base ^>= 4.14.1.0,
+    process == 1.6.13.2
+  hs-source-dirs: app
+  default-language: Haskell2010
