@@ -22,7 +22,9 @@ If
 .Pa $PATH/.config/globalgrep
 is a file which contains only a space-separated list of network
 hosts which can be accessed via passwordless SSH connections,
-then for all such network hosts, the command
+then for all network hosts which are specified in
+.Pa $PATH/.config/globalgrap ,
+the command
 .Dl globalgrep query
 runs the command
 .Dl grep ri query /
