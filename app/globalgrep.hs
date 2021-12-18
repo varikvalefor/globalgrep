@@ -11,9 +11,12 @@ type HostName = String;
 type Result = String;
 
 main :: IO ();
-main = head <$> getArgs >>= \query ->
-       (parseConfig <$> (readFile =<< configFilePath)) >>= \hosts ->
-       mapConcurrently (searchFor query) hosts >>= mapM_ putStrLn . concat;
+main = nabQuery >>= \q -> getSearchHosts >>= search q >>= display
+  where
+  display = mapM_ putStrLn . concat
+  nabQuery = head <$> getArgs
+  getSearchHosts = parseConfig <$> (readFile =<< configFilePath)
+  search query = mapConcurrently (searchFor query);
 
 -- | Where @k@ is the content of a @globalgrep@ configuration file,
 -- @parseConfig k@ is a list of the names of the network hosts which
