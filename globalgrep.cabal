@@ -5,7 +5,7 @@ synopsis:      Searches for stuff on multiple information systems
 description:   globalgrep is a command-line utility which facilitates
                searching for files on multiple systems.
 bug-reports:   http://github.com/varikvalefor/globalgrep/issues
-license:       Unlicense
+license:       0BSD
 author:        Varik Valefor
 maintainer:    varikvalefor@aol.com
 copyright:     (c) Varik Valefor 2021.
