@@ -22,14 +22,19 @@ If
 .Pa $PATH/.config/globalgrep
 is a file which contains only a space-separated list of network
 hosts which can be accessed via passwordless SSH connections,
-then for all network hosts which are specified in
+then for all network hosts
+.Va n
+which are specified in
 .Pa $PATH/.config/globalgrep ,
 the command
 .Dl globalgrep query
 runs the command
 .Dl grep -ri query /
-on a network host, writing the output of this command to the
-standard output.
+on
+.Va n ,
+writing the hostname of
+.Va n
+and the output of this command to the standard output.
 .Sh NOTES
 .Nm globalgrep
 assumes that all systems which are searched use the same log-in
