@@ -12,6 +12,7 @@ copyright:     (c) Varik Valefor 2021.
 category:      File
 
 executable globalgrep
+  ghc-options: -O2 -dynamic
   main-is: globalgrep.hs
   other-modules:
   build-depends:
