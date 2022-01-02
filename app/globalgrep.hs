@@ -42,5 +42,10 @@ searchFor :: String
           -- ^ The hostname of the network host which @globalgrep@
           -- searches
           -> IO [Result];
-searchFor query host = map ((host ++ ": ") ++) . lines <$>
-                       readProcess "ssh" [host, "grep -ri " ++ show query ++ " /"] [];
+searchFor query host = addHeaders <$> doTheGrep
+  where
+  addHeaders :: String -> [String]
+  addHeaders = map ((host ++ ": ") ++) . lines
+  --
+  doTheGrep :: IO String
+  doTheGrep = readProcess "ssh" [host, "grep -ri " ++ show query ++ " /"] [];
