@@ -44,8 +44,11 @@ searchFor :: String
           -> IO [Result];
 searchFor query host = addHeaders <$> doTheGrep
   where
+  comet :: String
+  comet = "grep -ri " ++ show query ++ " /"
+  --
   addHeaders :: String -> [String]
   addHeaders = map ((host ++ ": ") ++) . lines
   --
   doTheGrep :: IO String
-  doTheGrep = readProcess "ssh" [host, "grep -ri " ++ show query ++ " /"] [];
+  doTheGrep = readProcess "ssh" [host, comet] [];
