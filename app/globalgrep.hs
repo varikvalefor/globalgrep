@@ -11,7 +11,7 @@ type HostName = String;
 type Result = String;
 
 main :: IO ();
-main = nabQuery >>= \q -> getSearchHosts >>= search q >>= display
+main = nabQuery >>= (\q -> getSearchHosts >>= search q) >>= display
   where
   display = mapM_ putStrLn . concat
   nabQuery = head <$> getArgs
