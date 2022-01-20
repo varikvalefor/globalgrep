@@ -29,17 +29,16 @@ parseConfig = words;
 configFilePath :: IO String;
 configFilePath = (++ "/.config/globalgrep") <$> getEnv "HOME";
  
--- | Where @query@ is a string such that files which contain @query@
--- should be located and @host@ is the hostname of a network
--- host on which files which contain @query@ may be located,
--- @searchFor query host@ returns a list of the @query@-containing
--- files which reside on @host@.
+-- @searchFor query host@ returns a list of the @query@-matching files
+-- which reside on @host@.
 --
 -- For all @k@ in @searchFor query host@, @k@ begins with @host@.
 searchFor :: String
-          -- ^ The string which @globalgrep@ attempts to locate
+          -- ^ @globalgrep@ attempts to find the file which matches this
+          -- regular expression.
           -> HostName
-          -- ^ The hostname of the network host which @globalgrep@
+          -- ^ @globalgrep@ searches for the file on the host whose
+          -- hostname is this argument.
           -- searches
           -> IO [Result];
 searchFor query host = addHeaders <$> readProcess "ssh" [host, comet] []
